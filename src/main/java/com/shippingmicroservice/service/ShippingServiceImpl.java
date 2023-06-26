@@ -26,7 +26,7 @@ public class ShippingServiceImpl implements ShippingService{
         Shipping shipping = ShippingMapper.mapToShipping(shippingDto);
         System.out.println(shippingDto.getShippingAddress());
         Mono<Shipping> savedShipping = shippingRepository.save(shipping);
-        return savedShipping.map(shippingEntity -> ShippingMapper.mapToShipping(shippingDto));
+        return shippingRepository.save(shipping);
     }
 
     @Override
